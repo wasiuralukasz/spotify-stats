@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./assets/css/font.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import Login from "./views/Login/Login";
+import Dashboard from "./views/Dashbpard/Dashboard";
+import Center from "./components/Center/Center";
 
 function App() {
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    let token = window.localStorage.getItem("token");
+
+    if (!token && hash) {
+      token = hash
+        .substring(1)
+        .split("&")
+        .find((elem) => elem.startsWith("access_token"))
+        .split("=")[1];
+
+      window.location.hash = "";
+      window.localStorage.setItem("token", token);
+    }
+
+    setToken(token);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Center>
+        {!token ? <Login/> : <Dashboard/>}
+    </Center>
   );
 }
 
