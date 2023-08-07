@@ -8,6 +8,6 @@ const Button = ({ children, onClick }) => {
     }
   };
 
-  return <ButtonWrapper>{children}</ButtonWrapper>;
+  return <ButtonWrapper onClick={handleClick}>{children}</ButtonWrapper>;
 };
 export default Button;
