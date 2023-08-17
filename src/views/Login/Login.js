@@ -31,6 +31,8 @@ const Login = () => {
     
         setToken(token);
       });
+
+      
     
 
     return (
@@ -39,7 +41,7 @@ const Login = () => {
                 <Logo src={ logo } alt="Logo aplikacji"/>
                 <Title>hello</Title>
             </Header>
-            <Link href={`${AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
+            <Link href={`${AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&scopes=${SCOPES}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
                 Zaloguj
             </Link>
         </Wrapper>
