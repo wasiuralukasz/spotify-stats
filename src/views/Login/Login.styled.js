@@ -19,6 +19,7 @@ export const Header = styled.header`
 `
 export const Logo = styled.img`
     margin-right: 20px;
+    width: 50px;
 `
 
 export const Title = styled.h1`

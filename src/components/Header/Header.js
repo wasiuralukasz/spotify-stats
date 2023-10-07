@@ -23,23 +23,27 @@ export const UserInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: rgba(68,68,68,14%);
+  padding: 6px 8px;
+  border-radius: 100px;
 `
 
 export const UserAvatar = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
-  margin: 15px;
 `;
 
 export const UserName = styled.h1`
-  font-size: 24px;
+  font-size: 16px;
+  margin: 5px;
 `
 
 export const Arrow = styled.button`
-  margin-left: 25px;
+  position: relative;
   background-color: transparent;
   border: 0;
+  padding: 0;
 
   &:hover {
     cursor: pointer;
@@ -47,14 +51,14 @@ export const Arrow = styled.button`
 `;
 
 export const ArrowImage = styled.img`
-  width: 40px;
+  width: 20px;
 `;
 
 export const ArrowMenu = styled.div`
   position: absolute;
-  bottom: -25px;
-  right: 30px;
-  width: 150px;
+  bottom: -50px;
+  right: -8px;
+  width: 120px;
   padding: 5px;
   border-radius: 5px;
   background-color:rgba(0,0,0,0.5);
@@ -64,10 +68,11 @@ export const LogoutButton = styled(ButtonWrapper)`
     background-color: transparent;
     padding: 5px;
     width: 100%;
-    height: 30px;
     text-align: left;
     border-radius: 5px;
     transition: all .3s;
+    font-size: 12px;
+
 
     &:hover{
         transform: scale(1);
@@ -92,23 +97,23 @@ const Header = () => {
 
     return (
         <HeaderWrapper>
-        <Logo src={ logo } alt="Logo aplikacji"/>
-        <UserInfoWrapper>
-          {data ? (
-            <UserAvatar src={data.images[1].url} alt="Avatar" />
-          ) : (
-            <UserAvatar />
-          )}
-          <UserName>{data.display_name}</UserName>
-          <Arrow onClick={() => setShow(!show)}>
-            <ArrowImage src={arrow} />
-          </Arrow>
-          {show && (
-            <ArrowMenu>
-              <LogoutButton onClick={logout}>Wyloguj</LogoutButton>
-            </ArrowMenu>
-          )}
-        </UserInfoWrapper>
+          <Logo src={ logo } alt="Logo aplikacji"/>
+          <UserInfoWrapper>
+            {data ? (
+              <UserAvatar src={data.images[1].url} alt="Avatar" />
+            ) : (
+              <UserAvatar />
+            )}
+            <UserName>{data.display_name}</UserName>
+            <Arrow onClick={() => setShow(!show)}>
+              <ArrowImage src={arrow} />
+              {show && (
+              <ArrowMenu>
+                <LogoutButton onClick={logout}>Wyloguj</LogoutButton>
+              </ArrowMenu>
+            )}
+            </Arrow>
+          </UserInfoWrapper>
       </HeaderWrapper>
     )
 }

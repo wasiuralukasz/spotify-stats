@@ -5,8 +5,9 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #1F2020;
+    padding: 50px;
 `
 
 const Center = ({ children }) => {
