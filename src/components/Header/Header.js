@@ -14,11 +14,12 @@ import { ButtonWrapper } from "../../components/Button/Button.styled";
 export const HeaderWrapper = styled.header`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
-  height: 34px;
-`;
+  padding: 12px 24px;
+  grid-column: 4 / 13;
+  `
 
 export const UserInfoWrapper = styled.div`
   display: flex;
@@ -114,9 +115,7 @@ const Header = () => {
     };
 
     return (
-        <HeaderWrapper>
-          <Logo src={ logo } alt="Logo aplikacji" style={{'max-width': '34px', 'max-height': '34px'}}/>
-
+      <HeaderWrapper>
         <UserInfoWrapper>
           <UserNameWrapper>
             <UserName>{data.display_name}</UserName>

@@ -6,6 +6,7 @@ import arrow from "../../assets/images/arrow.svg";
 
 export const Wrapper = styled.div`
     width: 80%;
+    grid-column: 4 / 13;
 `
 
 export const Artist = styled.div`
