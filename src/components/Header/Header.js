@@ -17,26 +17,44 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 34px;
 `;
 
 export const UserInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+`
+
+export const UserNameWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: rgba(68,68,68,14%);
-  padding: 6px 8px;
+  padding: 0px 18px;
   border-radius: 100px;
+  width: 100%;
+  margin: 0px 8px;
+`
+
+export const UserAvatarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 100px;
+  background-color: #262626;
 `
 
 export const UserAvatar = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border-radius: 100%;
 `;
 
 export const UserName = styled.h1`
-  font-size: 16px;
-  margin: 5px;
+  font-size: 14px;
 `
 
 export const Arrow = styled.button`
@@ -97,15 +115,25 @@ const Header = () => {
 
     return (
         <HeaderWrapper>
-          <Logo src={ logo } alt="Logo aplikacji"/>
-          <UserInfoWrapper>
-            {data ? (
-              <UserAvatar src={data.images[1].url} alt="Avatar" />
-            ) : (
-              <UserAvatar />
-            )}
+          <Logo src={ logo } alt="Logo aplikacji" style={{'max-width': '34px', 'max-height': '34px'}}/>
+
+        <UserInfoWrapper>
+          <UserNameWrapper>
             <UserName>{data.display_name}</UserName>
-            <Arrow onClick={() => setShow(!show)}>
+          </UserNameWrapper>
+          <UserAvatarWrapper>
+            {data ? (
+                <UserAvatar src={data.images[1].url} alt="Avatar" />
+              ) : (
+                <UserAvatar />
+              )
+            }
+          </UserAvatarWrapper>
+        </UserInfoWrapper>
+         
+
+          {/*
+          <Arrow onClick={() => setShow(!show)}>
               <ArrowImage src={arrow} />
               {show && (
               <ArrowMenu>
@@ -113,7 +141,8 @@ const Header = () => {
               </ArrowMenu>
             )}
             </Arrow>
-          </UserInfoWrapper>
+          */}
+      
       </HeaderWrapper>
     )
 }
