@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     align-items: center;
     width: auto;
     height: auto;
-    background-color: #2B2D30;
+    background-color: #121212;
     margin: auto;
     padding: 50px;
     border-radius: 20px;
@@ -15,11 +15,15 @@ export const Wrapper = styled.div`
 `
 
 export const Header = styled.header`
-    display: flex;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 50px 0;
 `
 export const Logo = styled.img`
     margin-right: 20px;
-    width: 50px;
+    width: 60px;
+    height: 60px;
 `
 
 export const Title = styled.h1`
@@ -28,6 +32,7 @@ export const Title = styled.h1`
     color: #ffffff;
     font-size: 48px;
     font-weight: 500;
+    margin: 0;
 
     &::before {
         content: "";
@@ -41,19 +46,22 @@ export const Title = styled.h1`
     }
 `
 export const Link = styled.a`
-    background-color: #1ED761;
+    display: inline-block;
+    background-color: transparent;
     border-radius: 500px;
-    border: 0;
-    padding-inline: 32px;
-    padding-block: 8px;
-    color: #FFFFFF;
+    border: 1px solid #878787;
+    //padding-inline: 80px;
+    width: 100%;
+    padding-block: 9px;
+    color: #CCCCCC;
     font-weight: 700;
     font-size: 1rem;
     text-decoration: none;
-    /* transition: all .3s; */
+    text-align: center;
+    //transition: all .1s;
  
     &:hover {
-        transform: scale(1.04);
-        cursor: pointer;
+        border: 1px solid #ffffff;
+        cursor: default;
     }
 `

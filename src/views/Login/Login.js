@@ -37,13 +37,15 @@ const Login = () => {
 
     return (
         <Wrapper>
-            <Header>
+          <div>
+          <Header>
                 <Logo src={ logo } alt="Logo aplikacji"/>
                 <Title>hello</Title>
             </Header>
             <Link href={`${AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=${SCOPES}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
-                Zaloguj
+                Log in
             </Link>
+          </div>
         </Wrapper>
     )
 }
