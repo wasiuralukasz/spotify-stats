@@ -18,6 +18,7 @@ const Sidebar = () => {
     return(
         <Wrapper>
             <Logo src={ logo } alt="Logo aplikacji" style={{'max-width': '34px', 'max-height': '34px'}}/>
+            
         </Wrapper>
     );
 };

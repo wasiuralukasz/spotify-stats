@@ -10,22 +10,34 @@ export const Wrapper = styled.div`
 `
 
 export const Artist = styled.div`
-    width: 100px;
-    height: 100px;
-    padding: 0;
     display: inline-flex;
-    flex-direction: column;
-    margin: 10px;
+    flex-direction: row;
+    min-width: 48%;
+    max-width: 50%;
+    height: 70px;
+    padding: 10px;
+    justify-content: left;
     align-items: center;
-    justify-content: center;
+    background-color: rgba(255,255,255,5%);
+    border-radius: 5px;
+    margin: 5px;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 `
+
 export const ArtistImage = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
 `
 
 export const ArtistText = styled.p`
     font-size: 10px;
+    font-weight: 500;
     margin: 5px;
 `
 
@@ -73,7 +85,7 @@ const Main = () => {
             <h2>Top Artist:</h2>
                 {topArtists ? (
                     topArtists.items.map((item, i) => {
-                        if(i < 7) {
+                        if(i < 4) {
                             return (
                                 <Artist>
                                     <ArtistImage src={item.images[1].url} alt="Artist Image" />
